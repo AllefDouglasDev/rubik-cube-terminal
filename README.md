@@ -1,11 +1,30 @@
 # cubo
 
-Timer de cubo mágico que roda só no terminal. Node, sem dependências.
+Timer de speedcubing que roda inteiro no terminal: segure espaço, solte e resolva.
+
+![cubo em ação](docs/demo/demo.gif)
+
+- Segurar espaço prepara (vermelho → verde após 0,5 s); soltar começa; espaço de novo para.
+- Dígitos grandes no centro, que se ajustam ao tamanho do terminal.
+- À esquerda, os 3 melhores tempos de todo o histórico e os 7 últimos.
+- Apague um tempo inválido direto da lista.
+- Opção de ocultar o tempo durante a execução, lembrada entre aberturas.
+- Node puro, zero dependências.
+
+## Instalação
+
+Requer Node 20 ou mais novo.
 
 ```
-node bin/cubo.js      # ou `cubo`, pelo wrapper dos dotfiles
-npm test
+git clone git@github.com:AllefDouglasDev/rubik-cube-terminal.git
+cd rubik-cube-terminal
+npm link          # instala o comando `cubo`
+cubo
 ```
+
+Sem `npm link`, `node bin/cubo.js` funciona da mesma forma.
+
+## Teclas
 
 | Tecla | O que faz |
 |---|---|
@@ -16,8 +35,6 @@ npm test
 | d, depois y | apaga o tempo selecionado |
 | t | mostra/oculta o tempo durante a execução |
 | q, ctrl+c | sai |
-
-À esquerda ficam os 3 melhores tempos de todo o histórico e os 7 últimos.
 
 ## Soltar o espaço
 
@@ -34,3 +51,14 @@ intervalo de repetição (30 ms no padrão do macOS). A repetição de teclas pr
 
 `CUBO_DATA_DIR` e `CUBO_CONFIG_DIR` trocam as pastas. Os arquivos são gravados a cada tempo, com
 escrita atômica; um arquivo corrompido é renomeado para `*.corrupt-<data>`, nunca sobrescrito.
+
+## Desenvolvimento
+
+```
+npm test                     # node --test, sem dependências
+vhs docs/demo/demo.tape      # regrava o GIF com um histórico de exemplo
+```
+
+## Licença
+
+[MIT](LICENSE)
