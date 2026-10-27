@@ -1,0 +1,10 @@
+{
+  "name": "cubo",
+  "version": "0.1.0",
+  "description": "Timer de cubo mágico no terminal: segure espaço, solte e resolva",
+  "type": "module",
+  "bin": { "cubo": "bin/cubo.js" },
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node bin/cubo.js", "test": "node --test" },
+  "license": "MIT"
+}
